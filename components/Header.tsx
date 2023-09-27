@@ -1,47 +1,68 @@
-import Container from '@/components/ui/container';
+"use client";
 import Link from 'next/link';
-import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import Container from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
-import { AlignJustify, Moon, Sun } from 'lucide-react';
-import logo from '/public/next.svg'
+import { Croissant, Moon, Sun, Menu, Bell, LayoutDashboard } from 'lucide-react';
 import ProfileButton from './ui/profile-button';
-const routes = [
-    {
-        href: '/',
-        label: 'Home',
-    },
-    {
-        href: '/',
-        label: 'About',
-    },
-    {
-        href: '/',
-        label: 'Projects',
-    },
-    {
-        href: '/',
-        label: 'Skills',
-    },
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
-    {
-        href: '/',
-        label: 'Contact',
-    },
-];
+
+
 export default function Header() {
+    const { theme, setTheme } = useTheme();
+    const routes = [
+        {
+            href: '/',
+            label: 'Dashboard',
+        },
+        {
+            href: '/',
+            label: 'Finances',
+        },
+        {
+            href: '/',
+            label: 'Statistics',
+        },
+
+        {
+            href: '/',
+            label: 'About Us',
+        },
+    ];
     return (
         <header className='sm:flex sm:justify-between py-3 px-4 border-b'>
             <Container>
                 <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full" >
                     <div className="flex items-center">
-                        <Image src={logo} width={50} height={50} alt={'Logo'} />
-                        <Link href="" className='ml-4 lg:ml-0 px-2'>
-                            <h1 className='text-xl font-bold'>
-                                CompanieName
+                        <Sheet>
+                            <SheetTrigger>
+                                <Menu className='h-6 md:hidden w-6' />
+                            </SheetTrigger>
+                            <SheetContent side='left' className='"w-[300px] sm:w-[400px]'>
+                                <nav className='flex flex-col gap-5'>
+                                    {routes.map((route, i) => (
+                                        <Button asChild variant='ghost'>
+                                            <Link
+                                                key={i}
+                                                href={route.href}
+                                                className="block px-2 py-1 text-lg">
+                                                {route.label}
+                                            </Link>
+                                        </Button>
+                                    ))}
+                                </nav>
+                            </SheetContent>
+                        </Sheet>
+                        <Link href="/" className='ml-4 lg:ml-0 px-2 flex  '>
+                            <Croissant className='mr-2 text-yellow-500 ' />
+                            <h1 className='text-xl font-bold '>
+                                Mburu<span className='text-yellow-500 font-black '>IT</span>
                             </h1>
                         </Link>
                     </div>
-                    <nav className='mx-6 flex items-center space-x-4 lg:space-x-6 hidden md:block'>
+
+                    <nav className='mx-6 items-center lg:space-x-4 hidden md:block'>
                         {routes.map((route, i) => (
                             <Button asChild variant='ghost'>
                                 <Link
@@ -52,6 +73,7 @@ export default function Header() {
                                 </Link>
                             </Button>
                         ))}
+
                     </nav>
                     <div className='flex items-center'>
                         <Button
@@ -59,19 +81,20 @@ export default function Header() {
                             size={'icon'}
                             className='mr-2'
                             aria-label='Menu'>
+                            <Bell className='h-6 w-6' />
                             <span className='sr-only'>Menu</span>
-                            <AlignJustify className='h-6 w-6' />
                         </Button>
                         <Button
                             variant={'ghost'}
                             size={'icon'}
                             className='mr-2'
-                            aria-label='Toogle Theme'>
+                            aria-label='Toogle Theme'
+                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
                             <Sun className='h-6 w-6 rotate-0 scale-100  transition-all dark:rotate-90 dark:scale-0' />
                             <Moon className='absolute h-6 w-6 rotate-90 scale-0  transition-all dark:rotate-0 dark:scale-100' />
-                            <span className='sr-only'>Shopping Cart</span>
+                            <span className='sr-only'>Toggle Theme</span>
                         </Button>
-                        <ProfileButton/>
+                        <ProfileButton />
                     </div>
                 </div>
             </Container>
