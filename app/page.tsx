@@ -18,7 +18,7 @@ export default function Home() {
                 Coming soon
                 <Button size="lg" className="w-full py-6 text-xl">
                   <ShoppingBag className="mr-2" />
-                  Shop Now
+                  Baker management
                 </Button>
               </div>
             </div>

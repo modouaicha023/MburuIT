@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
-import { Product } from "@/types";
+// import { Product } from "@/types";
 
 interface ProductCard {
   data: Product;
