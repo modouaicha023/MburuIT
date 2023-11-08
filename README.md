@@ -7,4 +7,4 @@ A SaaS application for bakery businesses🥐 in Senegal. This application will m
  - Spring - Java☕😮‍💨
  
 
-##  Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md)." Thank shadcn for this template"
+##  Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
