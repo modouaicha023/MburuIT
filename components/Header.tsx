@@ -64,9 +64,9 @@ export default function Header() {
                 <nav className="flex flex-col gap-5 mt-6">
                   {routes.map((route, i) =>
                     route.getStarded ? (
-                      <Button asChild variant="ghost">
+                      <Button asChild variant="ghost" key={`rightNavbarItem ${i}`}>
                         <Link
-                          key={i}
+                          
                           href={route.href}
                           className="flex px-2 py-1 text-lg  flex-row-reverse gap-2 text-yellow-500 border-yellow-500 border-solid border-2">
                           <route.Icon />
@@ -74,9 +74,9 @@ export default function Header() {
                         </Link>
                       </Button>
                     ) : (
-                      <Button asChild variant="ghost">
+                      <Button asChild variant="ghost"  key={`rightNavbarItem ${i}`}>
                         <Link
-                          key={i}
+                          
                           href={route.href}
                           className="flex px-2 py-1 text-lg  flex-row-reverse gap-2  ">
                           <route.Icon />
@@ -99,9 +99,9 @@ export default function Header() {
           <nav className="mx-6 items-center lg:space-x-4 hidden md:block">
             {routes.map((route, i) =>
               route.getStarded ? (
-                <Button asChild variant="ghost">
+                <Button asChild variant="ghost" key={i}>
                   <Link
-                    key={i}
+                    
                     href={route.href}
                     className="text-sm font-medium transition-colors flex gap-1 text-yellow-500 border-yellow-500 border-solid border-2">
                     <route.Icon />
@@ -109,9 +109,9 @@ export default function Header() {
                   </Link>
                 </Button>
               ) : (
-                <Button asChild variant="ghost">
+                <Button asChild variant="ghost" key={i}>
                   <Link
-                    key={i}
+                    
                     href={route.href}
                     className="text-sm font-medium transition-colors flex gap-1">
                     <route.Icon />
