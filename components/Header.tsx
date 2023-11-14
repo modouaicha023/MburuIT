@@ -16,7 +16,15 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import ProfileButton from "./ui/profile-button";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+  SheetTitle,
+  SheetFooter,
+  SheetHeader,
+} from "./ui/sheet";
 import { useState } from "react";
 
 export default function Header() {
@@ -58,33 +66,34 @@ export default function Header() {
           <div className="flex items-center">
             <Sheet>
               <SheetTrigger>
-                <Menu className="h-6 md:hidden w-6" />
+                <Menu className="h-6 md:hidden w-6 hover:opacity-80" />
               </SheetTrigger>
-              <SheetContent side="right" className='"w-[300px] sm:w-[400px]'>
+              <SheetContent
+                side="right"
+                className="w-[300px] sm:w-[400px] flex flex-col">
+                <SheetHeader className="mt-2">
+                  <SheetTitle>Menu</SheetTitle>
+                </SheetHeader>
                 <nav className="flex flex-col gap-5 mt-6">
-                  {routes.map((route, i) =>
-                    route.getStarded ? (
-                      <Button asChild variant="ghost" key={`rightNavbarItem ${i}`}>
-                        <Link
-                          
-                          href={route.href}
-                          className="flex px-2 py-1 text-lg  flex-row-reverse gap-2 text-yellow-500 border-yellow-500 border-solid border-2">
-                          <route.Icon />
-                          {route.label}
-                        </Link>
-                      </Button>
-                    ) : (
-                      <Button asChild variant="ghost"  key={`rightNavbarItem ${i}`}>
-                        <Link
-                          
-                          href={route.href}
-                          className="flex px-2 py-1 text-lg  flex-row-reverse gap-2  ">
-                          <route.Icon />
-                          {route.label}
-                        </Link>
-                      </Button>
-                    )
-                  )}
+                  {routes.map((route, i) => (
+                    <SheetFooter key={`sheetNavbarItem ${i}`}>
+                      <SheetClose asChild>
+                        <Button
+                          asChild
+                          variant="outline"
+                          key={`rightNavbarItem ${i}`}>
+                          <Link
+                            href={route.href}
+                            className={` text-lg gap-2 w-full ${
+                              route.getStarded && " text-yellow-400"
+                            }`}>
+                            <route.Icon />
+                            {route.label}
+                          </Link>
+                        </Button>
+                      </SheetClose>
+                    </SheetFooter>
+                  ))}
                 </nav>
               </SheetContent>
             </Sheet>
@@ -96,12 +105,11 @@ export default function Header() {
             </Link>
           </div>
 
-          <nav className="mx-6 items-center lg:space-x-4 hidden md:block">
+          <nav className=" mx-6  lg:space-x-4 hidden md:block">
             {routes.map((route, i) =>
               route.getStarded ? (
                 <Button asChild variant="ghost" key={i}>
                   <Link
-                    
                     href={route.href}
                     className="text-sm font-medium transition-colors flex gap-1 text-yellow-500 border-yellow-500 border-solid border-2">
                     <route.Icon />
@@ -111,7 +119,6 @@ export default function Header() {
               ) : (
                 <Button asChild variant="ghost" key={i}>
                   <Link
-                    
                     href={route.href}
                     className="text-sm font-medium transition-colors flex gap-1">
                     <route.Icon />
