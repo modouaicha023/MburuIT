@@ -141,7 +141,7 @@ export default function SignIn() {
             </CardContent>
             <Separator className="m-2" />
             <CardFooter className="flex ">
-              <CardDescription>Don't have an account ? </CardDescription>
+              <CardDescription>Don&apos;t have an account ? </CardDescription>
               <Button variant="link" asChild>
                 <Link href={"/sign-up"}>Sign Up</Link>
               </Button>
