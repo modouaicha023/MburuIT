@@ -57,16 +57,14 @@ export default function SignIn() {
         <div className=" w-1/2 h-full bg-login hidden md:block bg-cover bg-center">
           <div className="w-full h-full flex flex-col gap-8 items-center justify-center p-4 bg-yellow-700  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border">
             <h1 className="font-bold text-4xl">
-              Optimisez votre{" "}
-              <span className="text-yellow-500">Boulangerie</span> avec Notre
-              Plateforme de Gestion{" "}
-              <span className="text-yellow-500">Simplifiée</span>.
+              Optimize your <span className="text-yellow-500">Bakery</span> with
+              Our {" "}<span className="text-yellow-500">Simplified</span> Management
+              Platform .
             </h1>
             <p className="font-medium text-1xl">
-              Connectez-vous pour une expérience de gestion simplifiée. Gérez
-              votre boulangerie en toute simplicité, accédez à tous les outils
-              nécessaires à la croissance de votre entreprise, suivez les
-              ventes, et restez informé de l'état de votre boulangerie.
+              Log in for a simplified management experience. Manage your bakery
+              with ease, access all the tools you need to grow your business,
+              track sales, and stay informed about the status of your bakery.
             </p>
           </div>
         </div>
