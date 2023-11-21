@@ -71,7 +71,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
-        'login': "url('../public/img/loginBg.png')",
+        'login': "url('../public/img/pain.jpg')",
       },
     },
   },
