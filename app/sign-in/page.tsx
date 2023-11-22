@@ -27,6 +27,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import OTPinput from "@/components/OTPInput";
 
 const formSchema = z.object({
   phone: z.string().min(9, {
@@ -47,15 +48,26 @@ export default function SignIn() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(values);
   }
 
   return (
     <Container>
-      <div className="flex w-full border-2 h-screen">
-        <div className=" w-1/2 h-full bg-login hidden md:block"></div>
+      <div className="flex w-full  h-screen">
+        <div className=" w-1/2 h-full bg-login hidden md:block bg-cover bg-center">
+          <div className="w-full h-full flex flex-col gap-8 items-center justify-center p-4 bg-yellow-700  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border">
+            <h1 className="font-bold text-4xl">
+              Optimize your <span className="text-yellow-500">Bakery</span> with
+              Our {" "}<span className="text-yellow-500">Simplified</span> Management
+              Platform .
+            </h1>
+            <p className="font-medium text-1xl">
+              Log in for a simplified management experience. Manage your bakery
+              with ease, access all the tools you need to grow your business,
+              track sales, and stay informed about the status of your bakery.
+            </p>
+          </div>
+        </div>
         <div className="w-full h-full md:w-1/2 lg:w-1/2 px-7 py-4 flex items-center justify-center">
           <Card className=" w-full min-w-[230px] h-fit p-6 ">
             <CardHeader>
@@ -80,6 +92,7 @@ export default function SignIn() {
                         </FormLabel>
                         <FormControl>
                           <Input
+                            className="spin-button-none"
                             type="number"
                             placeholder="771683124"
                             inputMode="numeric"
@@ -95,39 +108,30 @@ export default function SignIn() {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex gap-2 items-center">
+                        <FormLabel className="flex gap-2 items-center justify-center">
                           <Lock />
                           Password
                         </FormLabel>
-                        <FormControl>
-                          <Input
-                            type={viewPassword ? "number" : "password"}
-                            placeholder="Your password"
-                            inputMode="numeric"
-                            {...field}
-                          />
-                        </FormControl>
-                        {viewPassword ? (
+                        <div className="flex gap-6 items-center justify-center">
+                          <FormControl>
+                            {/* <Input
+                              type={viewPassword ? "text" : "password"}
+                              placeholder="Your password"
+                              inputMode="numeric"
+                              {...field}
+                            /> */}
+                          </FormControl>
+                          <OTPinput />
                           <Button
                             variant="outline"
                             size="icon"
                             onClick={(e) => {
                               e.preventDefault();
-                              setViewPassword(false);
+                              setViewPassword(!viewPassword);
                             }}>
-                            <Eye />
+                            {viewPassword ? <Eye /> : <EyeOff />}
                           </Button>
-                        ) : (
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setViewPassword(true);
-                            }}>
-                            <EyeOff />
-                          </Button>
-                        )}
+                        </div>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -141,11 +145,12 @@ export default function SignIn() {
             </CardContent>
             <Separator className="m-2" />
             <CardFooter className="flex ">
-              <CardDescription>Don't have an account ? </CardDescription>
+              <CardDescription>Don&apos;t have an account ? </CardDescription>
               <Button variant="link" asChild>
                 <Link href={"/sign-up"}>Sign Up</Link>
               </Button>
             </CardFooter>
+            {/*Auth Google*/}
             {/* <Separator className="m-2" />
             <div className="w-full flex justify-center">
               <Button variant={"outline"}>

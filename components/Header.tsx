@@ -66,7 +66,7 @@ export default function Header() {
           <div className="flex items-center">
             <Sheet>
               <SheetTrigger>
-                <Menu className="h-6 md:hidden w-6 hover:opacity-80" />
+                <Menu className="h-6 lg:hidden lg:w-1050 w-6 hover:opacity-80" />
               </SheetTrigger>
               <SheetContent
                 side="right"
@@ -105,7 +105,7 @@ export default function Header() {
             </Link>
           </div>
 
-          <nav className=" mx-6  lg:space-x-4 hidden md:block">
+          <nav className="mx-6  lg:space-x-4 hidden lg:w-1050 lg:block">
             {routes.map((route, i) =>
               route.getStarded ? (
                 <Button asChild variant="ghost" key={i}>
@@ -155,7 +155,7 @@ export default function Header() {
               <Button asChild variant="ghost">
                 <Link
                   href="/sign-in"
-                  className="text-sm font-medium transition-colors flex gap-1 text-black bg-yellow-500 border-solid border-2 whitespace-nowrap ">
+                  className="text-sm font-medium transition-colors flex gap-1 text-black bg-yellow-500  whitespace-nowrap ">
                   Sign In
                 </Link>
               </Button>
