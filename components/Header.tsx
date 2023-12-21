@@ -53,7 +53,7 @@ export default function Header() {
       Icon: MessagesSquare,
     },
     {
-      href: "/dashbord",
+      href: "/dashboard",
       label: "Get Starded",
       Icon: ArrowUpRight,
       getStarded: true,
@@ -99,7 +99,7 @@ export default function Header() {
             </Sheet>
             <Link href="/" className="ml-4 lg:ml-0 px-2 flex  ">
               <Croissant className="mr-2 text-yellow-500 " />
-              <h1 className="text-xl font-bold ">
+              <h1 className="text-xl font-bold hidden  brk480:block">
                 Mburu<span className="text-yellow-500 font-black ml-1">IT</span>
               </h1>
             </Link>

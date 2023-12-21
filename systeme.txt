@@ -1,0 +1,617 @@
+### Diagramme de classes UML :
+
+1. **Entreprise**
+   - Attributs : ID, Nom, Adresse, etc.
+   - Associations : Contient plusieurs Boulangeries
+
+2. **Boulangerie**
+   - Attributs : ID, Nom, Adresse, etc.
+   - Associations : Possède plusieurs Boutiques, Travaux avec un Manager
+
+3. **Boutique**
+   - Attributs : ID, Nom, Adresse, etc.
+   - Associations : A un Vendeur, Vend plusieurs Produits
+
+4. **Vendeur**
+   - Attributs : ID, Nom, Compte (pour le suivi des ventes, inventaire, chiffres, etc.)
+   - Associations : Travaux dans une Boutique
+
+5. **Produit**
+   - Attributs : ID, Nom, Catégorie, etc.
+   - Associations : Appartient à une Catégorie, Peut être Inventorié par le Manager, Est inclus dans les Commandes des Clients
+
+6. **Catégorie**
+   - Attributs : ID, Nom, Description, etc.
+   - Associations : Contient plusieurs Produits
+
+7. **Client**
+   - Attributs : ID, Nom, Compte (pour consulter les ventes, versements, etc.)
+   - Associations : Passe des Commandes de Produits
+
+8. **Producteur**
+   - Attributs : ID, Nom, etc.
+   - Associations : Produit des Articles, Fait son Inventaire
+
+9. **Livreur**
+   - Attributs : ID, Nom, etc.
+   - Associations : Livre des Produits, Fait son Inventaire
+
+10. **Manager**
+    - Attributs : ID, Nom, Compte (pour gérer l'ensemble du système)
+    - Associations : Gère l'Inventaire, Programme la Production, Saisie les Caisses Journalières, etc.
+
+
+
+
+1. **Entreprise:**
+   - *Attributs:* ID, Nom, Adresse, Contact
+   - *Relations:* Possède plusieurs Boulangeries
+
+2. **Boulangerie:**
+   - *Attributs:* ID, Nom, Adresse, Responsable
+   - *Relations:* Appartient à une Entreprise, A plusieurs Boutiques, A plusieurs Employés, A plusieurs Livraisons, Produit plusieurs Catégories de Produits
+
+3. **Boutique:**
+   - *Attributs:* ID, Nom, Adresse
+   - *Relations:* Appartient à une Boulangerie, A plusieurs Vendeurs, Vend plusieurs Produits
+
+4. **Vendeur:**
+   - *Attributs:* ID, Nom, Prénom, Adresse, Compte
+   - *Relations:* Travaile dans une Boutique, Gère son Inventaire, A plusieurs Ventes
+
+5. **Produit:**
+   - *Attributs:* ID, Nom, Description, Prix, Stock
+   - *Relations:* Appartient à une Catégorie, Inventorié par le Manager, Commandé par le Client, Produit par le Producteur
+
+6. **Catégorie:**
+   - *Attributs:* ID, Nom
+   - *Relations:* Possède plusieurs Produits
+
+7. **Client:**
+   - *Attributs:* ID, Nom, Prénom, Adresse, Compte
+   - *Relations:* Passe des Commandes, Effectue des Paiements
+
+8. **Commande:**
+   - *Attributs:* ID, Date, Montant
+   - *Relations:* Comprend plusieurs Produits, Passée par un Client
+
+9. **Producteur:**
+   - *Attributs:* ID, Nom, Prénom, Adresse
+   - *Relations:* Produit plusieurs Catégories de Produits, Gère son Inventaire
+
+10. **Livreur:**
+    - *Attributs:* ID, Nom, Prénom, Adresse
+    - *Relations:* Livre des Produits à des Clients ou des Employés
+
+11. **Employé:**
+    - *Attributs:* ID, Nom, Prénom, Adresse, Compte
+    - *Relations:* Travaile dans une Boulangerie, Participe à l'Inventaire
+
+12. **Manager:**
+    - *Attributs:* ID, Nom, Prénom, Adresse, Compte
+    - *Relations:* Gère la Boulangerie, Programme la Production, Effectue l'Inventaire, Gère les Ventes, Saisie les Caisses, Effectue le Bilan
+
+
+
+
+
+
+1. **Entreprise:**
+   - *Attributs:* 
+     - ID (identifiant unique de l'entreprise),
+     - Nom,
+     - Adresse,
+     - Contact
+
+   - *Relations:* 
+     - Possède plusieurs Boulangeries
+
+2. **Boulangerie:**
+   - *Attributs:* 
+     - ID (identifiant unique de la boulangerie),
+     - Nom,
+     - Adresse,
+     - Responsable
+
+   - *Relations:* 
+     - Appartient à une Entreprise
+     - A plusieurs Boutiques
+     - A plusieurs Employés
+     - A plusieurs Livraisons
+     - Produit plusieurs Catégories de Produits
+
+3. **Boutique:**
+   - *Attributs:* 
+     - ID (identifiant unique de la boutique),
+     - Nom,
+     - Adresse
+
+   - *Relations:* 
+     - Appartient à une Boulangerie
+     - A plusieurs Vendeurs
+     - Vend plusieurs Produits
+
+4. **Vendeur:**
+   - *Attributs:* 
+     - ID (identifiant unique du vendeur),
+     - Nom,
+     - Prénom,
+     - Adresse,
+     - Compte
+
+   - *Relations:* 
+     - Travaile dans une Boutique
+     - Gère son Inventaire
+     - A plusieurs Ventes
+
+5. **Produit:**
+   - *Attributs:* 
+     - ID (identifiant unique du produit),
+     - Nom,
+     - Description,
+     - Prix,
+     - Stock
+
+   - *Relations:* 
+     - Appartient à une Catégorie
+     - Inventorié par le Manager
+     - Commandé par le Client
+     - Produit par le Producteur
+
+6. **Catégorie:**
+   - *Attributs:* 
+     - ID (identifiant unique de la catégorie),
+     - Nom
+
+   - *Relations:* 
+     - Possède plusieurs Produits
+
+7. **Client:**
+   - *Attributs:* 
+     - ID (identifiant unique du client),
+     - Nom,
+     - Prénom,
+     - Adresse,
+     - Compte
+
+   - *Relations:* 
+     - Passe des Commandes
+     - Effectue des Paiements
+
+8. **Commande:**
+   - *Attributs:* 
+     - ID (identifiant unique de la commande),
+     - Date,
+     - Montant
+
+   - *Relations:* 
+     - Comprend plusieurs Produits
+     - Passée par un Client
+
+9. **Producteur:**
+   - *Attributs:* 
+     - ID (identifiant unique du producteur),
+     - Nom,
+     - Prénom,
+     - Adresse
+
+   - *Relations:* 
+     - Produit plusieurs Catégories de Produits
+     - Gère son Inventaire
+
+10. **Livreur:**
+    - *Attributs:* 
+      - ID (identifiant unique du livreur),
+      - Nom,
+      - Prénom,
+      - Adresse
+
+    - *Relations:* 
+      - Livre des Produits à des Clients ou des Boulangeries
+
+12. **Manager:**
+    - *Attributs:* 
+      - ID (identifiant unique du manager),
+      - Nom,
+      - Prénom,
+      - Adresse,
+      - Compte
+
+    - *Relations:* 
+      - Gère la Boulangerie
+      - Programme la Production
+      - Effectue l'Inventaire
+      - Gère les Ventes
+      - Saisie les Caisses
+      - Effectue le Bilan
+
+
+13. **Inventaire:**
+    - *Attributs:* 
+      - ID (identifiant unique de l'inventaire),
+      - Date,
+      - Type (par exemple, inventaire du manager, inventaire du client, inventaire du producteur),
+      - Description
+
+    - *Relations:* 
+      - Réalisé par le Manager, le Client, le Producteur, etc.
+      - Comprend plusieurs Produits
+
+14. **Versement:**
+    - *Attributs:* 
+      - ID (identifiant unique du versement),
+      - Date,
+      - Montant
+
+    - *Relations:* 
+      - Effectué par le Client, Boutique, Livreur
+      - Reçu par la Boulangerie
+
+15. **Commission:**
+    - *Attributs:* 
+      - ID (identifiant unique de la commission),
+      - Date,
+      - Montant
+
+    - *Relations:* 
+      - Calculée pour le Client
+      - Versée par la Boulangerie
+
+16. **Caisse Journalière:**
+    - *Attributs:* 
+      - ID (identifiant unique de la caisse journalière),
+      - Date,
+      - Entrées,
+      - Sorties,
+      - Solde
+
+    - *Relations:* 
+      - Gérée par le Manager
+
+17. **Bilan Journalier:**
+    - *Attributs:* 
+      - ID (identifiant unique du bilan journalier),
+      - Date,
+      - Total Ventes,
+      - Total Achats,
+      - Bénéfice Net
+
+    - *Relations:* 
+      - Préparé par le Manager
+
+18. **Programmation de Production:**
+    - *Attributs:* 
+      - ID (identifiant unique de la programmation de production),
+      - Date,
+      - Quantité à Produire
+
+    - *Relations:* 
+      - Définie par le Manager
+      - Concerne plusieurs Produits
+
+
+
+20. **Rapport de Production:**
+    - *Attributs:*
+      - ID (identifiant unique du rapport de production),
+      - Date,
+      - Quantité produite par Catégorie de Produits
+
+    - *Relations:*
+      - Préparé par le Producteur
+
+
+21. **Rapport de Livraison:**
+    - *Attributs:*
+      - ID (identifiant unique du rapport de livraison),
+      - Date,
+      - Liste des produits livrés,
+      - Destinataire (Client, Employé, Boulangerie, etc.)
+
+    - *Relations:*
+      - Préparé par le Livreur
+
+
+
+22. **Historique des Ventes:**
+    - *Attributs:*
+      - ID (identifiant unique de l'historique des ventes),
+      - Date,
+      - Produits vendus,
+      - Montant total
+
+    - *Relations:*
+      - Enregistré par le Système pour chaque Vente
+
+23. **Notification:**
+    - *Attributs:*
+      - ID (identifiant unique de la notification),
+      - Contenu,
+      - Date,
+      - Destinataire (Client, Vendeur, Manager, etc.)
+
+    - *Relations:*
+      - Générée par le Système en fonction d'événements (nouvelle commande, promotion, etc.)
+
+
+
+
+24. **Zone de Livraison:**
+    - *Attributs:*
+      - ID (identifiant unique de la zone de livraison),
+      - Nom,
+      - Description,
+      - Liste des adresses de livraison associées
+
+    - *Relations:*
+      - Utilisée dans la Planification des Livraisons
+
+25. **Gestion des Retours:**
+    - *Attributs:*
+      - ID (identifiant unique du retour),
+      - Date,
+      - Produits retournés,
+      - Raison du retour
+
+    - *Relations:*
+      - Initie par le Client ou le Livreur
+      - Impacte le Stock et les Comptes
+
+26. **Gestion des Stocks:**
+    - *Attributs:*
+      - ID (identifiant unique de la gestion des stocks),
+      - Date,
+      - Produits concernés,
+      - Quantités ajustées
+
+    - *Relations:*
+      - Réalisée par le Manager, le Vendeur, le Livreur, etc.
+
+27. **Gestion des Utilisateurs:**
+    - *Attributs:*
+      - ID (identifiant unique de la gestion des utilisateurs),
+      - Nom d'utilisateur,
+      - Mot de passe,
+      - Rôle (Client, Vendeur, Manager, etc.)
+
+    - *Relations:*
+      - Gérée par le Manager pour la création et la gestion des comptes utilisateur
+
+
+
+28. **Programme de Fidélité:**
+    - *Attributs:*
+      - ID (identifiant unique du programme de fidélité),
+      - Niveau de fidélité,
+      - Avantages associés (réductions, offres spéciales, etc.)
+
+    - *Relations:*
+      - Lié au Compte du Client
+
+29. **Maintenance des Équipements:**
+    - *Attributs:*
+      - ID (identifiant unique de la maintenance),
+      - Équipement concerné,
+      - Date de début,
+      - Date de fin,
+      - Description de la maintenance
+
+    - *Relations:*
+      - Effectuée par le Technicien ou le Gestionnaire
+      - Impacte la disponibilité des équipements
+
+
+30. **Gestion des Taxes:**
+    - *Attributs:*
+      - ID (identifiant unique de la gestion des taxes),
+      - Type de taxe,
+      - Taux de taxe applicable,
+      - Période fiscale
+
+    - *Relations:*
+      - Appliquée aux Ventes et Achats
+
+
+31. **Gestion des Congés:**
+    - *Attributs:*
+      - ID (identifiant unique de la gestion des congés),
+      - Employé concerné,
+      - Date de début,
+      - Date de fin,
+      - Type de congé (payé, non payé)
+
+    - *Relations:*
+      - Gérée par le Manager
+
+
+
+32. **Gestion des Alertes:**
+    - *Attributs:*
+      - ID (identifiant unique de l'alerte),
+      - Type d'alerte (stock bas, maintenance requise, etc.),
+      - Date et heure de déclenchement,
+      - Description
+
+    - *Relations:*
+      - Générée par le système en fonction de conditions prédéfinies
+
+
+
+
+
+33. **Système de Point de Vente (POS):**
+    - *Attributs:*
+      - ID (identifiant unique du POS),
+      - Terminal de paiement,
+      - Transactions, Ticket de caisse
+
+    - *Relations:*
+      - Utilisé par les Vendeurs pour les ventes en boutique
+
+34. **Gestion des Réclamations:**
+    - *Attributs:*
+      - ID (identifiant unique de la gestion des réclamations),
+      - Nature de la réclamation,
+      - Statut de traitement,
+      - Réponses aux clients
+
+    - *Relations:*
+      - Gérée par le Service Client en réponse aux réclamations des clients
+
+
+
+35. **Module de Rapports Financiers:**
+    - *Attributs:*
+      - ID (identifiant unique du module de rapports financiers),
+      - Rapports de revenus, dépenses, bénéfices,
+      - Période de rapport
+
+    - *Relations:*
+      - Utilisé par le Manager pour générer des rapports financiers
+
+36. **Autorisations d'Accès:**
+    - *Attributs:*
+      - ID (identifiant unique de l'autorisation d'accès),
+      - Niveau d'accès (lecteur, rédacteur, administrateur),
+      - Ressource autorisée (module, fonctionnalité, etc.)
+
+    - *Relations:*
+      - Défini par le Manager pour contrôler l'accès des utilisateurs
+
+
+
+37. **Module de Suivi des Coûts de Production:**
+    - *Attributs:*
+      - ID (identifiant unique du module de suivi des coûts de production),
+      - Coûts des matières premières,
+      - Coûts de main-d'œuvre
+
+    - *Relations:*
+      - Utilisé par le Manager pour évaluer les coûts de production
+
+38. **Gestion des Horaires de Travail:**
+    - *Attributs:*
+      - ID (identifiant unique de la gestion des horaires de travail),
+      - Horaires de début et de fin,
+      - Jours travaillés
+
+    - *Relations:*
+      - Gérée par le Manager pour les Employés
+
+
+
+39. **Gestion des Fournisseurs:**
+    - *Attributs:*
+      - ID (identifiant unique du fournisseur),
+      - Nom du fournisseur,
+      - Contact,
+      - Produits fournis
+
+    - *Relations:*
+      - Fournit des matières premières ou des produits à la Boulangerie
+
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+Bien sûr, examinons les cas d'utilisation pour chaque rôle dans le système de gestion d'entreprise de boulangerie, en détaillant les actions spécifiques que chaque rôle peut entreprendre :
+
+### 1. **Manager:**
+   - **Gestion Globale:**
+     - Accéder au tableau de bord principal.
+     - Visualiser les statistiques globales de l'entreprise.
+     - Gérer les paramètres généraux de l'application.
+
+   - **Gestion des Employés:**
+     - Ajouter, modifier ou supprimer des employés.
+     - Affecter des rôles et des autorisations aux employés.
+     - Gérer les horaires de travail et les congés.
+
+   - **Gestion des Produits:**
+     - Ajouter, modifier ou supprimer des produits.
+     - Définir les catégories de produits.
+     - Gérer les niveaux de stock et l'inventaire.
+
+   - **Gestion des Ventes:**
+     - Visualiser les rapports de ventes et les performances.
+     - Gérer les commandes et les retours.
+     - Gérer les caisses journalières et générer des bilans.
+
+   - **Gestion des Fournisseurs et Stocks:**
+     - Gérer les fournisseurs et les contrats d'approvisionnement.
+     - Surveiller les niveaux de stock et déclencher des réapprovisionnements.
+
+   - **Gestion des Promotions:**
+     - Créer et gérer des promotions pour les produits.
+     - Configurer des offres spéciales et des réductions.
+
+### 2. **Vendeur:**
+   - **Gestion des Ventes:**
+     - Passer des commandes pour les clients.
+     - Enregistrer les ventes en boutique.
+     - Gérer les retours et les remboursements.
+
+   - **Gestion du Compte Vendeur:**
+     - Visualiser les ventes personnelles et les commissions.
+     - Consulter l'inventaire des produits en boutique.
+
+   - **Interaction avec le Client:**
+     - Enregistrer les informations des clients pour les programmes de fidélité.
+     - Gérer les commandes en boutique ou en ligne.
+
+### 3. **Client:**
+   - **Commande et Achat:**
+     - Passer des commandes en ligne ou en boutique.
+     - Consulter le catalogue des produits et les promotions.
+     - Visualiser l'historique des commandes et des achats.
+
+   - **Gestion du Compte Client:**
+     - Consulter le solde, les commissions et les versements.
+     - Suivre les promotions et les offres spéciales.
+
+   - **Feedback et Avis:**
+     - Soumettre des avis et des commentaires sur les produits.
+     - Donner des retours sur les expériences d'achat.
+
+### 4. **Producteur:**
+   - **Gestion de la Production:**
+     - Planifier la production de différents produits.
+     - Suivre les cycles de production et les quantités produites.
+     - Gérer les stocks de produits en cours de production.
+
+   - **Gestion des Matières Premières:**
+     - Suivre les niveaux de stock des matières premières.
+     - Placer des commandes pour les matières premières nécessaires.
+
+   - **Gestion des Rapports de Production:**
+     - Générer des rapports sur les quantités produites et les performances.
+
+### 5. **Livreur:**
+   - **Gestion des Livraisons:**
+     - Recevoir des itinéraires de livraison.
+     - Livrer des produits aux clients, aux employés ou à d'autres succursales.
+     - Enregistrer les retards de livraison et les retours.
+
+   - **Gestion des Stocks Livrés:**
+     - Mettre à jour les niveaux de stock après chaque livraison.
+     - Signaler tout problème lié aux produits pendant la livraison.
+
+### 6. **Service Client:**
+   - **Assistance Client:**
+     - Répondre aux demandes d'assistance des clients.
+     - Gérer les réclamations et les retours.
+     - Fournir des informations sur les produits et les promotions.
+
+   - **Feedback Client:**
+     - Suivre les avis et les commentaires des clients.
+     - Gérer les enquêtes de satisfaction client.
+
+### 7. **Administrateur Système:**
+   - **Gestion des Utilisateurs:**
+     - Créer, modifier ou supprimer des comptes utilisateur.
+     - Gérer les autorisations et les niveaux d'accès.
+
+   - **Maintenance du Système:**
+     - Assurer la maintenance du système et la gestion des mises à jour.
+     - Gérer les paramètres du système.
+     
