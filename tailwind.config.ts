@@ -73,6 +73,11 @@ module.exports = {
       backgroundImage: {
         'login': "url('../public/img/pain.jpg')",
       },
+      screens: {
+        brk480: "650px",
+       
+      },
+      
     },
   },
   plugins: [require("tailwindcss-animate")],
