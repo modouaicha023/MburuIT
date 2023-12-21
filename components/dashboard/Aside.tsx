@@ -67,29 +67,27 @@ export default function SideBar({ className }: SidebarProps) {
         <ul className="flex flex-col w-full gap-3">
           {sideBarItems.map((item, index) => (
             <li className="px-2" key={index}>
-              <TooltipProvider delayDuration={200}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant={"ghost"}
-                      className="w-full rounded-sm  px-4">
-                      <Link
-                        href={item.url}
-                        className=" flex items-center  gap-2 w-full rounded-none h-full ">
+              <Button variant={"ghost"} className="w-full rounded-sm  px-4">
+                <Link
+                  href={item.url}
+                  className=" flex items-center  gap-2 w-full rounded-none h-full ">
+                  <TooltipProvider delayDuration={200}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
                         <item.Icon />
-                        {isSideBarOpen && (
-                          <span className="h-full font-semibold  uppercase flex-nowrap">
-                            {item.title}
-                          </span>
-                        )}
-                      </Link>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" align="center">
-                    <p>{item.title}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+                      </TooltipTrigger>
+                      <TooltipContent side="right" align="center">
+                        <p>{item.title}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  {isSideBarOpen && (
+                    <span className="h-full font-semibold  uppercase flex-nowrap">
+                      {item.title}
+                    </span>
+                  )}
+                </Link>
+              </Button>
             </li>
           ))}
         </ul>
