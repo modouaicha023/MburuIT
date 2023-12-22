@@ -1,10 +1,10 @@
 import Container from "@/components/ui/container";
 import React from "react";
 
-export default function Dashbord() {
+export default function MburuApp() {
   
   return (
-      <div className="w-full">Dashboard</div>
+      <div className="w-full">MburuApp</div>
    
   );
 }

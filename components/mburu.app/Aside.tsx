@@ -28,15 +28,19 @@ import { useState } from "react";
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const sideBarItems = [
-  { url: "/dashboard", title: "Dashboard", Icon: LayoutDashboard },
-  { url: "/inventories", title: "Inventaires", Icon: GanttChartSquare },
-  { url: "/clients", title: "Clients", Icon: Users },
-  { url: "/stores", title: "Boutiques", Icon: Store },
-  { url: "/productions", title: "Productions", Icon: FolderCog },
-  { url: "/sales", title: "Ventes", Icon: ShoppingCart },
-  { url: "/orders", title: "Commandes", Icon: ListOrdered },
-  { url: "/payments", title: "Payements", Icon: Banknote },
-  { url: "/employees", title: "Employes", Icon: UserCog },
+  { url: "/mburu.app/dashboard", title: "Dashboard", Icon: LayoutDashboard },
+  {
+    url: "/mburu.app/inventories",
+    title: "Inventaires",
+    Icon: GanttChartSquare,
+  },
+  { url: "/mburu.app/clients", title: "Clients", Icon: Users },
+  { url: "/mburu.app/stores", title: "Boutiques", Icon: Store },
+  { url: "/mburu.app/productions", title: "Productions", Icon: FolderCog },
+  { url: "/mburu.app/sales", title: "Ventes", Icon: ShoppingCart },
+  { url: "/mburu.app/orders", title: "Commandes", Icon: ListOrdered },
+  { url: "/mburu.app/payments", title: "Payements", Icon: Banknote },
+  { url: "/mburu.app/employees", title: "Employes", Icon: UserCog },
 ];
 export default function SideBar({ className }: SidebarProps) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -67,10 +71,10 @@ export default function SideBar({ className }: SidebarProps) {
         <ul className="flex flex-col w-full gap-3">
           {sideBarItems.map((item, index) => (
             <li className="px-2" key={index}>
-              <Button variant={"ghost"} className="w-full rounded-sm  px-4">
+              <Button variant={"ghost"} className="w-full rounded-sm ">
                 <Link
                   href={item.url}
-                  className=" flex items-center  gap-2 w-full rounded-none h-full ">
+                  className=" flex  items-center  gap-2 w-full rounded-none h-full ">
                   <TooltipProvider delayDuration={200}>
                     <Tooltip>
                       <TooltipTrigger asChild>
