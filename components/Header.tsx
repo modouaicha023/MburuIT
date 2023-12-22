@@ -53,7 +53,7 @@ export default function Header() {
       Icon: MessagesSquare,
     },
     {
-      href: "/dashboard",
+      href: "/mburu.app",
       label: "Get Starded",
       Icon: ArrowUpRight,
       getStarded: true,

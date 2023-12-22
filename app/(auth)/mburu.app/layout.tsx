@@ -1,4 +1,4 @@
-import Aside from "@/components/dashboard/Aside";
+import Aside from "@/components/mburu.app/Aside";
 import Container from "@/components/ui/container";
 import type { Metadata } from "next";
 
@@ -7,16 +7,16 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export default function DashboardLayout({
+export default function MburuAppLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Container>
-      <div className="flex  min-h-screen w-full border ">
+      <div className="flex  min-h-screen w-full  ">
         <Aside  className=" shadow-lg"  />
-        <main className="flex-grow border ">
+        <main className="flex-grow">
           {children}
         </main>
       </div>
