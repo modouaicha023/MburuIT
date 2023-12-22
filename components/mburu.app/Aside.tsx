@@ -12,6 +12,7 @@ import {
   LayoutDashboard,
   PanelLeft,
   PanelRight,
+  Truck,
 } from "lucide-react";
 
 import {
@@ -39,6 +40,7 @@ const sideBarItems = [
   { url: "/mburu.app/productions", title: "Productions", Icon: FolderCog },
   { url: "/mburu.app/sales", title: "Ventes", Icon: ShoppingCart },
   { url: "/mburu.app/orders", title: "Commandes", Icon: ListOrdered },
+  { url: "/mburu.app/deliveries", title: "Livraisons", Icon: Truck },
   { url: "/mburu.app/payments", title: "Payements", Icon: Banknote },
   { url: "/mburu.app/employees", title: "Employes", Icon: UserCog },
 ];
