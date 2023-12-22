@@ -71,10 +71,10 @@ export default function SideBar({ className }: SidebarProps) {
         <ul className="flex flex-col w-full gap-3">
           {sideBarItems.map((item, index) => (
             <li className="px-2" key={index}>
-              <Button variant={"ghost"} className="w-full rounded-sm ">
+              <Button variant={"ghost"} className="w-full rounded-sm p-0 ">
                 <Link
                   href={item.url}
-                  className=" flex  items-center  gap-2 w-full rounded-none h-full ">
+                  className=" flex  items-center  gap-2 w-full rounded-none h-full px-4 py-2 ">
                   <TooltipProvider delayDuration={200}>
                     <Tooltip>
                       <TooltipTrigger asChild>
