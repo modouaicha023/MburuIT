@@ -16,7 +16,7 @@ export default function MburuAppLayout({
     <Container>
       <div className="flex  min-h-screen w-full  ">
         <Aside  className=" shadow-lg"  />
-        <main className="flex-grow">
+        <main className="flex-grow  min-w-screen overflow-auto">
           {children}
         </main>
       </div>

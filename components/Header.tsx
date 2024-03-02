@@ -33,17 +33,17 @@ export default function Header() {
   const routes = [
     {
       href: "/",
-      label: "Home",
+      label: "Acceuil",
       Icon: Home,
     },
     {
       href: "/features",
-      label: "Features",
+      label: "Fonctionalités",
       Icon: Settings2,
     },
     {
       href: "/team",
-      label: "Team",
+      label: "Equipe",
       Icon: Users,
     },
 
@@ -54,13 +54,13 @@ export default function Header() {
     },
     {
       href: "/mburu.app",
-      label: "Get Starded",
+      label: "Commencez Maintenant",
       Icon: ArrowUpRight,
       getStarded: true,
     },
   ];
   return (
-    <header className="sm:flex sm:justify-between py-3 px-4 border-b">
+    <header className="flex justify-between py-3 px-4 border-b">
       <Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full">
           <div className="flex items-center">
