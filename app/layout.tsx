@@ -1,4 +1,3 @@
-// "use client";
 import { ThemeProvider } from '@/components/ThemeProvider'
 import './globals.css'
 import type { Metadata } from 'next'
@@ -23,7 +22,6 @@ export default function RootLayout({
           attribute='class'
           defaultTheme='system'
           enableSystem>
-          <Header />
           {children}
         </ThemeProvider>
       </body>
