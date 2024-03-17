@@ -25,11 +25,9 @@ import {
   SheetFooter,
   SheetHeader,
 } from "./ui/sheet";
-import { useState } from "react";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
-  const [currentUser, setCurrentUser] = useState(false);
   const routes = [
     {
       href: "/",
@@ -129,16 +127,6 @@ export default function Header() {
             )}
           </nav>
           <div className="flex items-center">
-            {currentUser && (
-              <Button
-                variant={"ghost"}
-                size={"icon"}
-                className="mr-2"
-                aria-label="Notifications">
-                <Bell className="h-6 w-6" />
-                <span className="sr-only">Notifications</span>
-              </Button>
-            )}
             <Button
               variant={"ghost"}
               size={"icon"}
@@ -149,17 +137,14 @@ export default function Header() {
               <Moon className="absolute h-6 w-6 rotate-90 scale-0  transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle Theme</span>
             </Button>
-            {currentUser ? (
-              <ProfileButton />
-            ) : (
-              <Button asChild variant="ghost">
-                <Link
-                  href="/sign-in"
-                  className="text-sm font-medium transition-colors flex gap-1 text-black bg-yellow-500  whitespace-nowrap ">
-                  Sign In
-                </Link>
-              </Button>
-            )}
+
+            <Button asChild variant="ghost">
+              <Link
+                href="/sign-in"
+                className="text-sm font-medium transition-colors flex gap-1 text-black bg-yellow-500  whitespace-nowrap ">
+                Sign In
+              </Link>
+            </Button>
           </div>
         </div>
       </Container>
