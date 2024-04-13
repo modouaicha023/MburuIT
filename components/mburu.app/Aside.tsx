@@ -25,6 +25,8 @@ import {
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { useState } from "react";
+import Image from "next/image";
+import logo from "@/app/icon.svg";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -55,6 +57,28 @@ export default function SideBar({ className }: SidebarProps) {
     <aside className={cn("py-16 border-r border-l w-fit relative", className)}>
       <TooltipProvider delayDuration={200}>
         <Tooltip>
+          <TooltipTrigger>
+            <div
+              className={`absolute ${
+                isSideBarOpen ? "top-2" : "top-12 justify-center"
+              } left-5 flex gap-2 items-center`}>
+              <Image
+                src={logo}
+                alt="Logo"
+                width={30}
+                height={30}
+                className={isSideBarOpen ? "w-10 h-10" : "w-8 h-8"}
+              />
+              {isSideBarOpen && <p className="text-xs">MBURU</p>}
+            </div>
+          </TooltipTrigger>
+          <TooltipContent side="right" align="center">
+            <p>mburu</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      <TooltipProvider delayDuration={200}>
+        <Tooltip>
           <TooltipTrigger asChild>
             <Button
               variant={"outline"}
@@ -69,7 +93,7 @@ export default function SideBar({ className }: SidebarProps) {
         </Tooltip>
       </TooltipProvider>
 
-      <nav className="">
+      <nav className="mt-2">
         <ul className="flex flex-col w-full gap-3">
           {sideBarItems.map((item, index) => (
             <li className="px-2" key={index}>
