@@ -4,15 +4,19 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import ProfileButton from "../ui/profile-button";
 import { useTheme } from "next-themes";
+import { Badge } from "@/components/ui/badge";
 
 export default function HeaderProfile() {
   const { theme, setTheme } = useTheme();
 
   return (
     <header className="sticky top-0  w-full border h-fit">
-      <div className=" px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full">
+      <div className="py-2 px-4 sm:px-6 lg:px-8 flex h-fit items-center justify-between w-full">
         <div className=" flex-grow h-full rounded-lg"></div>
         <div className="flex items-center w-fit">
+          <Badge variant="default" className="mr-2">
+            Gérant
+          </Badge>
           <Button
             variant={"ghost"}
             size={"icon"}

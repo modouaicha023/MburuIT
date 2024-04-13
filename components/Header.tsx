@@ -15,7 +15,6 @@ import {
   MessagesSquare,
   ArrowUpRight,
 } from "lucide-react";
-import ProfileButton from "./ui/profile-button";
 import {
   Sheet,
   SheetContent,
@@ -45,20 +44,20 @@ export default function Header() {
       Icon: Users,
     },
 
-    {
-      href: "/faq",
-      label: "FAQ",
-      Icon: MessagesSquare,
-    },
+    // {
+    //   href: "/faq",
+    //   label: "FAQ",
+    //   Icon: MessagesSquare,
+    // },
     {
       href: "/mburu.app",
-      label: "Commencez Maintenant",
+      label: "Commencez",
       Icon: ArrowUpRight,
       getStarded: true,
     },
   ];
   return (
-    <header className="flex justify-between py-3 px-4 border-b">
+    <header className="flex justify-between  px-4 border-b">
       <Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full">
           <div className="flex items-center">

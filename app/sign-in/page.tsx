@@ -8,7 +8,6 @@ import * as z from "zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -22,12 +21,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Image from "next/image";
-import OTPinput from "@/components/OTPInput";
 import Header from "@/components/Header";
 
 const formSchema = z.object({
@@ -72,7 +75,7 @@ export default function SignIn() {
               </p>
             </div>
           </div>
-          <div className="w-full h-full md:w-1/2 lg:w-1/2 px-7 py-4 flex items-center justify-center">
+          <div className="w-full h-fit md:w-1/2 lg:w-1/2 px-7 py-4 flex items-center justify-center">
             <Card className=" w-full min-w-[230px] h-fit p-6 ">
               <CardHeader>
                 <CardTitle>Login</CardTitle>
