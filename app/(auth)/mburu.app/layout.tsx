@@ -1,3 +1,4 @@
+import TopLayout from "@/components/TopLayout";
 import Aside from "@/components/mburu.app/Aside";
 import HeaderProfile from "@/components/mburu.app/HeaderProfile";
 import Container from "@/components/ui/container";
@@ -20,7 +21,8 @@ export default function MburuAppLayout({
         <Aside className=" shadow-lg" />
         <main className="flex-grow min-w-screen max-h-screen flex flex-col items-center">
           <HeaderProfile />
-          <ScrollArea className="mt-4 w-full h-full flex-grow whitespace-nowrap  p-4">
+          <TopLayout />
+          <ScrollArea className="mt-4 w-full h-full flex-grow whitespace-nowrap  px-4">
             {children}
           </ScrollArea>
         </main>
