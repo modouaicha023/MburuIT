@@ -1,6 +1,6 @@
 "use client";
 import { format, set } from "date-fns";
-import { Calendar as CalendarIcon } from "lucide-react";
+import { Calendar as CalendarIcon, Search, Store } from "lucide-react";
 import { fr } from "date-fns/locale";
 
 import { cn } from "@/lib/utils";
@@ -11,6 +11,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "./ui/input";
 import React, { useEffect, useState } from "react";
 export default function TopLayout() {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -21,9 +29,27 @@ export default function TopLayout() {
   }, [date]);
 
   return (
-    <div className="flex  h-20 justify-between w-full rounded-sm p-1 sticky top-0 z-10 backdrop-blur-sm items-center pr-8">
-      <div className=" border"></div>
-      <div className="flex">
+    <div className="flex  h-20 justify-between w-full rounded-sm p-1 sticky top-0 z-10 backdrop-blur-sm items-center px-8 ">
+      <div className=" ">
+        <div className="flex gap-1">
+          <Input type="search" placeholder="Rechercher" className="w-[400px]" />
+          <Button variant={"outline"}>
+            <Search />
+          </Button>
+        </div>
+      </div>
+      <div className="flex gap-1">
+        <Select>
+          <SelectTrigger className="w-fit text-right  max-w-[150px] overflow-hidden flex gap-1 items-center justify-center px-2 break-words">
+            <Store className="mr-auto h-4 w-4 opacity-50"  />
+            <SelectValue placeholder="Boutique" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">Pikine</SelectItem>
+            <SelectItem value="dark">Dakar</SelectItem>
+            <SelectItem value="system">Mbour</SelectItem>
+          </SelectContent>
+        </Select>
         <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
           <PopoverTrigger asChild>
             <Button
@@ -45,7 +71,7 @@ export default function TopLayout() {
               mode="single"
               captionLayout="dropdown-buttons"
               selected={date}
-              toYear={date?.getFullYear()}
+              toYear={new Date().getFullYear()}
               fromYear={2000}
               onSelect={setDate}
               disabled={(date) =>
