@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
         remotePatterns: [
@@ -10,6 +9,9 @@ const nextConfig = {
             },
         ],
     },
-}
+    env: {
+        BACKEND_BASE__URL: process.env.BACKEND_BASE__URL,
+    },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

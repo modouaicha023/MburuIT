@@ -27,12 +27,14 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Header from "@/components/Header";
+import { signUp } from "@/api/user/api";
+import { UserType } from "@/lib/enums";
 
 const formSchema = z.object({
   firstname: z.string().min(5, {
     message: "Your name must be at least 5 strings.",
   }),
-  lastname: z.string().min(5, {
+  lastname: z.string().min(1, {
     message: "Your name must be at least 5 strings.",
   }),
   username: z.string().min(5, {
@@ -59,8 +61,12 @@ export default function SignUp() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const data = {
+      ...values,
+      userType: UserType.CLIENT,
+    };
+    await signUp(data);
   }
 
   return (
