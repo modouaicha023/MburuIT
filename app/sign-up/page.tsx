@@ -29,12 +29,19 @@ import Link from "next/link";
 import Header from "@/components/Header";
 
 const formSchema = z.object({
-  name: z.string().min(5, {
+  firstname: z.string().min(5, {
+    message: "Your name must be at least 5 strings.",
+  }),
+  lastname: z.string().min(5, {
+    message: "Your name must be at least 5 strings.",
+  }),
+  username: z.string().min(5, {
     message: "Your name must be at least 5 strings.",
   }),
   phone: z.string().min(9, {
     message: "Your number must be at least 9 digits.",
   }),
+
   password: z.string().min(4, {
     message: "Your password must be at least 4 digits",
   }),
@@ -44,7 +51,9 @@ export default function SignUp() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      firstname: "",
+      lastname: "",
+      username: "",
       phone: "",
       password: "",
     },
@@ -58,27 +67,30 @@ export default function SignUp() {
     <>
       <Header />
       <Container>
-        <div className="flex w-full  h-screen">
-          <div className=" w-1/2 h-full bg-login hidden md:block bg-cover bg-center">
-            <div className="w-full h-full flex flex-col gap-8 items-center justify-center p-4 bg-yellow-700  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border">
+        <div className="flex w-full  min-h-screen h-fit">
+          <div className=" w-1/2 min-h-full bg-login hidden md:block bg-cover bg-center">
+            <div className="w-full h-full flex flex-col gap-8 items-center justify-center p-4 bg-yellow-700 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border">
               <h1 className="font-bold text-4xl">
-                Optimize your <span className="text-yellow-500">Bakery</span>{" "}
-                with Our <span className="text-yellow-500">Simplified</span>{" "}
-                Management Platform .
+                Optimisez votre{" "}
+                <span className="text-yellow-500">Boulangerie</span> avec notre
+                plateforme de Gestion{" "}
+                <span className="text-yellow-500">Simplifiée</span>.
               </h1>
               <p className="font-medium text-1xl">
-                Log in for a simplified management experience. Manage your
-                bakery with ease, access all the tools you need to grow your
-                business, track sales, and stay informed about the status of
-                your bakery.
+                Connectez-vous pour une expérience de gestion simplifiée. Gérez
+                votre boulangerie facilement, accédez à tous les outils dont
+                vous avez besoin pour développer votre entreprise, suivez les
+                ventes et restez informé de l'état de votre boulangerie.
               </p>
             </div>
           </div>
           <div className="w-full h-fit md:w-1/2 lg:w-1/2 px-7 py-4 flex items-center justify-center">
             <Card className=" w-full min-w-[230px] h-fit p-6 ">
               <CardHeader>
-                <CardTitle>Register</CardTitle>
-                <CardDescription>Get start with your account</CardDescription>
+                <CardTitle>S'inscrire sur la plateforme</CardTitle>
+                <CardDescription>
+                  Commencez par ouvrir un compte
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <Form {...form}>
@@ -87,18 +99,17 @@ export default function SignUp() {
                     className="space-y-8 flex flex-col">
                     <FormField
                       control={form.control}
-                      name="name"
+                      name="username"
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex gap-2 items-center">
-                            <User />
-                            Full name
+                            Votre identiant
                           </FormLabel>
                           <FormControl>
                             <Input
                               className="spin-button-none"
                               type="text"
-                              placeholder="Modou Diop"
+                              placeholder="un identiant pour vous connecter"
                               {...field}
                             />
                           </FormControl>
@@ -106,36 +117,14 @@ export default function SignUp() {
                         </FormItem>
                       )}
                     />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex gap-2 items-center">
-                            <Phone />
-                            Phone Number
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              className="spin-button-none"
-                              type="number"
-                              placeholder="771683124"
-                              inputMode="numeric"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+
                     <FormField
                       control={form.control}
                       name="password"
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex gap-2 items-center">
-                            <KeySquare />
-                            Password
+                            Mot de passe
                           </FormLabel>
                           <div className="flex gap-6 items-center justify-center">
                             <FormControl>
@@ -160,18 +149,80 @@ export default function SignUp() {
                         </FormItem>
                       )}
                     />
+                    <FormField
+                      control={form.control}
+                      name="firstname"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex gap-2 items-center">
+                            Prénom
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              className="spin-button-none"
+                              type="text"
+                              placeholder="Samba"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastname"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex gap-2 items-center">
+                            Nom
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              className="spin-button-none"
+                              type="text"
+                              placeholder="Diop"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex gap-2 items-center">
+                            Téléphone
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              className="spin-button-none"
+                              type="number"
+                              placeholder="771683124"
+                              inputMode="numeric"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
                     <Button type="submit" size="lg">
-                      Register
-                      <LogIn />
+                      S'inscrire
                     </Button>
                   </form>
                 </Form>
               </CardContent>
               <Separator className="m-2" />
               <CardFooter className="flex ">
-                <CardDescription>Already have an account ?</CardDescription>
+                <CardDescription>Vous avez déjà un compte ?</CardDescription>
                 <Button variant="link" asChild>
-                  <Link href={"/sign-in"}>Sign In</Link>
+                  <Link href={"/sign-in"}>Se connecter</Link>
                 </Button>
               </CardFooter>
             </Card>

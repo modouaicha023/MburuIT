@@ -13,6 +13,7 @@ import {
   PanelLeft,
   PanelRight,
   Truck,
+  Warehouse,
 } from "lucide-react";
 
 import {
@@ -45,6 +46,7 @@ const sideBarItems = [
   { url: "/mburu.app/deliveries", title: "Livraisons", Icon: Truck },
   { url: "/mburu.app/payments", title: "Payements", Icon: Banknote },
   { url: "/mburu.app/employees", title: "Employes", Icon: UserCog },
+  { url: "/mburu.app/bakers", title: "Boulangeries", Icon: Warehouse  },
 ];
 export default function SideBar({ className }: SidebarProps) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
